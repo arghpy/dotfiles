@@ -14,7 +14,7 @@ ETH=$(echo $NETWORKS | grep 'e')
 WIFI=$(echo $NETWORKS | grep 'w')
 
 if [[ -n $ETH ]]; then
-	echo "$ETH_ICON"
+	echo "$ETH_ICON Eth"
 elif [[ -n $WIFI ]]; then
 	SSID=$(nmcli -t | grep "connected to" | grep $WIFI | awk '{print $NF}')
 	echo "$WIFI_ICON $SSID"
@@ -23,7 +23,6 @@ else
 fi
 
 
-echo "$ICON $SSID"
 
 # Implement the click actions
 case $BUTTON in

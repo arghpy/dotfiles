@@ -9,6 +9,7 @@ ICON_EMPTY=""
 
 
 LEVEL=$(cat /sys/class/power_supply/BAT*/capacity)
+STATE=$(cat /sys/class/power_supply/BAT*/status)
 
 
 if (( $LEVEL <= 100 && $LEVEL > 95 )); then
@@ -27,6 +28,7 @@ fi
 
 # Implement the click actions
 case $BUTTON in
+        1) dunstify "$STATE" ;;
         6) st -e vim $(which $0) ;;
 esac
 
