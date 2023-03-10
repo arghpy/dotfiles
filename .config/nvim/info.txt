@@ -1,0 +1,2 @@
+You need to have installed `ripgrep` in order for
+<leader>ps to work.
