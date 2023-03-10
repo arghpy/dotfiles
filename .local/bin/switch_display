@@ -4,14 +4,15 @@
 
 SOURCES=$(xrandr | grep -w "connected" | awk '{print $1}')
 
-EDP1=$(echo $SOURCES | grep -i "edp")
+EDP1=$(echo "$SOURCES" | grep -i "edp")
 
-HDMI=$(echo $SOURCES | grep -i "hdmi")
+HDMI=$(echo "$SOURCES" | grep -i "hdmi")
 
-if [ -z $HDMI ]; then
-	xrandr --output $EDP1 --auto
+if [ -z "$HDMI" ]; then
+	xrandr --output "$EDP1" --auto
 else
-	xrandr --output eDP-1 --off --output HDMI-1-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-0 --off --output DP-1-1 --off
+	xrandr  --output "$HDMI" --auto --scale 1.0x1.0 \
+		 $(echo $(xrandr -q | grep "connected") \ grep -v "\b$HDMI" | awk '{print "--output", $1, "--off"}' | paste -sd ' ' -)
 
 fi
 

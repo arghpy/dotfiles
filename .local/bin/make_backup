@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+
+rsync --timeout=600 -avh --progress --update \
+    ~/.ssh \
+    ~/stuff \
+    ~/.vim \
+    ~/.xinitrc \
+    ~/.zshrc \
+    ~/.profile \
+    ~/.local/bin \
+    ~/.local/src \
+    ~/.config/lf \
+    ~/.config/nvim \
+    ~/.config/qtile \
+    /etc/lightdm \
+    backup:backup_dir

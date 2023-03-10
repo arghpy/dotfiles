@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+VOLUME=$(echo "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $NF}') * 100" | bc -l | awk -F '.' '{print $1}')
+
+
+HIGH=""
+LOW=""
+OFF=""
+
+
+if [[ $VOLUME -gt 60 ]]; then
+        printf "%s %s" "$HIGH" "$VOLUME%"
+elif [[ $VOLUME -le 60 && $VOLUME -gt 10 ]]; then
+        printf "%s %s" "$LOW" "$VOLUME%"
+elif [[ $VOLUME -le 10 ]]; then
+        printf "%s %s" "$OFF" "$VOLUME%"
+fi
