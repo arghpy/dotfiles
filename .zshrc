@@ -36,6 +36,9 @@ alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 alias school='cd ~/stuff/uvt/subjects/year_II'
+alias semII='cd ~/stuff/uvt/subjects/year_II/sem_II'
+alias vim='nvim'
+
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     . /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -55,7 +58,7 @@ export PATH=$PATH:/home/arghpy/.local/bin:/home/arghpy/.local/bin/dwm_scripts:/h
 
 ## Autostart x
 
-if [ -z $DISPLAY ]; then
+if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
         exec startx
 fi
 
@@ -63,3 +66,7 @@ fi
 source /home/arghpy/.profile
 
 GTK_THEME=Adwaita:dark
+
+[ -f "/home/arghpy/.ghcup/env" ] && source "/home/arghpy/.ghcup/env" # ghcup-env
+
+EDITOR="nvim"
