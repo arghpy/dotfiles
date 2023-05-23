@@ -37,6 +37,6 @@ case $BUTTON in
 
 		;;
 	3) st -e nmtui ;;
-        6) st -e vim $(which $0) ;;
+        6) st -e nvim $(which $0) ;;
 esac
 

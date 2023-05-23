@@ -9,6 +9,6 @@ echo "$ICON $TEMP°C"
 
 # Implement the click actions
 case $BUTTON in
-        6) st -e vim $(which $0) ;;
+        6) st -e nvim $(which $0) ;;
 esac
 

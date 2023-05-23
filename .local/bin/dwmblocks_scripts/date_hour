@@ -2,6 +2,15 @@
 
 ICON=""
 
-DATE=$(date '+%b %d (%a) %I:%M%p')
+DATE=$(date '+%b %d (%a) %H:%M')
 
-printf "%s %s" "$ICON" "$DATE"
+printf "%s  %s" "$ICON" "$DATE"
+
+case $BUTTON in
+    1)
+        dunstify "$ICON $DATE"
+        ;;
+    6)
+        st -e nvim $(which $0)
+        ;;
+esac

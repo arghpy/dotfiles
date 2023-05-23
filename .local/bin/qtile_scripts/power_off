@@ -12,6 +12,6 @@ printf "%s " "$ICON"
 case $BUTTON in
 	1) dunstify "$(echo -e "Reboot\nPower off\nLogout")" ;; 
 	3) st -e power_actions ;;
-        6) st -e vim $(which $0) ;;
+        6) st -e nvim $(which $0) ;;
 esac
 

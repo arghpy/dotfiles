@@ -11,8 +11,10 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=14" };
-static const char dmenufont[]       = "monospace:size=14";
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:antialias=true:style:medium:size=14" };
+//static const char *fonts[]          = { "monospace:size=14" };
+static const char dmenufont[]       = "JetBrainsMono Nerd Font:antialias=true:style:medium:size=14";
+//static const char dmenufont[]       = "monospace:size=14";
 static const char col_black[]       = "#000000";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -94,21 +96,23 @@ static const char *lynx[]  = { "/home/arghpy/.local/bin/dwm_scripts/start_lynx",
 static const char *thunar[]  = { "/usr/bin/thunar", NULL};
 static const char *lf[]  = { "/home/arghpy/.local/bin/dwm_scripts/start_lf", NULL};
 static const char *slock[]  = { "slock", NULL};
+static const char *screenshot[]  = { "/home/arghpy/.local/bin/dwm_scripts/screenshot.sh", NULL};
 
 #include "shiftview.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,			XK_w,      spawn,          {.v = firefox } },
-	{ MODKEY|ShiftMask,		XK_w,      spawn,          {.v = lynx } },
-	{ MODKEY|ShiftMask,		XK_o,      spawn,          {.v = thunar } },
-	{ MODKEY,			XK_o,      spawn,          {.v = lf } },
+	{ MODKEY,			            XK_w,      spawn,          {.v = firefox } },
+	{ MODKEY|ShiftMask,		        XK_w,      spawn,          {.v = lynx } },
+	{ MODKEY|ShiftMask,		        XK_o,      spawn,          {.v = thunar } },
+	{ MODKEY,			            XK_o,      spawn,          {.v = lf } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slock } },
-	{ MODKEY,			XK_minus,  spawn,          SHCMD( "pamixer -d 5; kill -47 $(pidof dwmblocks)" ) },
-	{ MODKEY,			XK_equal,  spawn,          SHCMD( "pamixer -i 5; kill -47 $(pidof dwmblocks)" ) },
-	{ MODKEY|ShiftMask,		XK_minus,  spawn,          SHCMD( "brightnessctl set 5%- >/dev/null ; kill -51 $(pidof dwmblocks)" ) },
-	{ MODKEY|ShiftMask,		XK_equal,  spawn,          SHCMD( "brightnessctl set 5%+ >/dev/null ; kill -51 $(pidof dwmblocks)" ) },
+	{ 0,			                XK_Print,  spawn,          {.v = screenshot } },
+	{ MODKEY,			            XK_minus,  spawn,          SHCMD( "pamixer -d 5; kill -47 $(pidof dwmblocks)" ) },
+	{ MODKEY,			            XK_equal,  spawn,          SHCMD( "pamixer -i 5; kill -47 $(pidof dwmblocks)" ) },
+	{ MODKEY|ShiftMask,		        XK_minus,  spawn,          SHCMD( "brightnessctl set 5%- >/dev/null ; kill -51 $(pidof dwmblocks)" ) },
+	{ MODKEY|ShiftMask,		        XK_equal,  spawn,          SHCMD( "brightnessctl set 5%+ >/dev/null ; kill -51 $(pidof dwmblocks)" ) },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

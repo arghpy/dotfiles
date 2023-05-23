@@ -20,5 +20,5 @@ fi
 case $BUTTON in
 	1) dunstify "$VOLUME%";;
 	3) pavucontrol;;
-	6) st -e vim "$(which "$0")";;
+	6) st -e nvim "$(which "$0")";;
 esac

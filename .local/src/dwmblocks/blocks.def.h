@@ -8,7 +8,7 @@ static const Block blocks[] = {
 	{"", "battery",			30,		11},
 	{"", "volume",			0,		13},
 	{"", "wifi",			10,		17},
-	{"", "date_hour",		5,		14},
+	{"", "date_hour",		1,		14},
 	{"", "get_help",		0,		18},
 	{"", "power_off",		0,		19},
 };
