@@ -1,2 +1,6 @@
 You need to have installed `ripgrep` in order for
 <leader>ps to work.
+
+
+For `packer` to work: 
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
