@@ -3,7 +3,8 @@
 # Icons
 
 WIFI_ICON=""
-ETH_ICON=""
+ETH_ICON="󰈀"
+#ETH_ICON=""
 
 # Variables
 
@@ -17,9 +18,9 @@ if [[ -n $ETH ]]; then
 	echo "$ETH_ICON Eth"
 elif [[ -n $WIFI ]]; then
 	SSID=$(nmcli -t | grep "connected to" | grep $WIFI | awk '{print $NF}')
-	echo "$WIFI_ICON $SSID"
+	echo "$WIFI_ICON  $SSID"
 else
-	echo "$WIFI_ICON"
+	echo "$WIFI_ICON "
 fi
 
 

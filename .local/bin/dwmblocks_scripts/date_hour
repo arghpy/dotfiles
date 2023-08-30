@@ -4,7 +4,7 @@ ICON=""
 
 DATE=$(date '+%b %d (%a) %H:%M')
 
-printf "%s  %s" "$ICON" "$DATE"
+printf "%s  %-25s" "$ICON" "$DATE"
 
 case $BUTTON in
     1)

@@ -54,7 +54,7 @@ fi
 
 
 ## Adding to path
-export PATH=$PATH:/home/arghpy/.local/bin:/home/arghpy/.local/bin/dwm_scripts:/home/arghpy/.local/bin/dwmblocks_scripts
+export PATH=$PATH:/home/"${USER}"/.local/bin:/home/"${USER}"/.local/bin/dwm_scripts:/home/"${USER}"/.local/bin/dwmblocks_scripts
 
 ## Autostart x
 
@@ -63,10 +63,8 @@ if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
 fi
 
 
-source /home/arghpy/.profile
+source /home/"${USER}"/.profile
 
 GTK_THEME=Adwaita:dark
-
-[ -f "/home/arghpy/.ghcup/env" ] && source "/home/arghpy/.ghcup/env" # ghcup-env
 
 EDITOR="nvim"

@@ -9,7 +9,7 @@ DISK=""
 SIZE=$(df -h | grep home | awk '{print $2}')
 USED=$(df -h | grep home | awk '{print $3}')
 
-echo " $DISK $USED/$SIZE"
+echo "$DISK $USED/$SIZE"
 
 
 # Implement the click actions
