@@ -35,8 +35,6 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip --color=auto'
-alias school='cd ~/stuff/uvt/subjects/year_II'
-alias semII='cd ~/stuff/uvt/subjects/year_II/sem_II'
 alias vim='nvim'
 
 # enable auto-suggestions based on the history
@@ -54,17 +52,16 @@ fi
 
 
 ## Adding to path
-export PATH=$PATH:/home/"${USER}"/.local/bin:/home/"${USER}"/.local/bin/dwm_scripts:/home/"${USER}"/.local/bin/dwmblocks_scripts
+export PATH=$PATH:"${HOME}"/.local/bin:"${HOME}"/.local/bin/dwm_scripts:"${HOME}"/.local/bin/dwmblocks_scripts:"${HOME}"/.local/bin/my_scripts
 
-## Autostart x
-
-if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
-        exec startx
-fi
-
-
-source /home/"${USER}"/.profile
+source "${HOME}"/.profile
 
 GTK_THEME=Adwaita:dark
 
 EDITOR="nvim"
+
+### Autostart x
+#
+#if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
+#        exec startx
+#fi
