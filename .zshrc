@@ -1,6 +1,8 @@
 # Options
 setopt autocd              # change directory just by typing its name
 setopt interactivecomments # allow comments in interactive mode
+setopt HIST_IGNORE_DUPS
+bindkey -v
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
@@ -16,8 +18,8 @@ zstyle ':completion:*:*:*:*:*' menu select
 
 # History in cache directory:
 HISTFILE=~/.zsh_history
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=10000
+SAVEHIST=10000
 
 #Syntax highlighting
 if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -52,16 +54,16 @@ fi
 
 
 ## Adding to path
-export PATH=$PATH:"${HOME}"/.local/bin:"${HOME}"/.local/bin/dwm_scripts:"${HOME}"/.local/bin/dwmblocks_scripts:"${HOME}"/.local/bin/my_scripts
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/bin/dwm_scripts:$HOME/.local/bin/dwmblocks_scripts:$HOME/.local/bin/my_scripts
 
-source "${HOME}"/.profile
+source $HOME/.profile
 
 GTK_THEME=Adwaita:dark
 
 EDITOR="nvim"
 
-### Autostart x
-#
-#if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
-#        exec startx
-#fi
+## Autostart x
+
+if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
+        exec startx
+fi
