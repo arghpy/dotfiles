@@ -62,6 +62,12 @@ GTK_THEME=Adwaita:dark
 
 EDITOR="nvim"
 
+autoload -U compinit 
+compinit
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+setopt correctall
+
 ## Autostart x
 
 if [[ -z $DISPLAY && -z $SSH_CLIENT ]]; then
