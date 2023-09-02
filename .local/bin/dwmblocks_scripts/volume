@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VOLUME=$(echo "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $NF}') * 100" | bc -l | awk -F '.' '{print $1}')
+VOLUME="$(pamixer --get-volume)"
 
 
 HIGH=""
