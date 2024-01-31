@@ -34,11 +34,8 @@ fi
 
 setxkbmap -option caps:escape
 
+source $HOME/.bash_profile
+
 touchpad_tap &
 
-xwallpaper --zoom "${HOME}/pictures/wallpapers/astronaut.jpeg"
-
-picom &
-pa-applet &
-nm-applet &
 exec i3
