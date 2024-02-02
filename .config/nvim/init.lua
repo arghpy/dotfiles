@@ -117,6 +117,21 @@ cmp.setup({
   })
 })
 
+-- Setting diagnostic
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'rounded',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
+})
+
 -- Turn off virtual text diagnostic
 vim.diagnostic.config({
     virtual_text = false
@@ -170,3 +185,6 @@ vim.opt.updatetime = 100
 -- Color scheme
 vim.opt.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
+
+-- Extend path
+vim.opt.path = vim.opt.path + ',/usr/avr/include'
