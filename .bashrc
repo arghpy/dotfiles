@@ -18,5 +18,5 @@ function parse_git_branch() {
 	fi
 }
 
-export PS1='\u@\H \w\[\e[92m\]$(parse_git_branch)\[\e[0m\] \$ '
+export PS1='\u@\H \W\[\e[92m\]$(parse_git_branch)\[\e[0m\] \$ '
 export PATH="${PATH}:${HOME}/.local/bin/custom"
