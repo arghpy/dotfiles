@@ -73,8 +73,8 @@ bindsym Print exec $HOME/.local/bin/screenshot
 # kill focused window
 bindsym $mod+q kill
 
-# TODO: Lock screen
-#bindsym $mod+Alt+l i3lock
+# Lock screen: Ctrl+Alt+l
+bindsym Control+Mod1+l exec loginctl lock-session
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -83,6 +83,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
 
 # change focus
 bindsym $mod+h focus left
@@ -220,3 +221,8 @@ client.unfocused #333333 #222222 #888888 #292d2e #222222
 # Cycle through active workspaces
 bindsym $mod+n workspace next
 bindsym $mod+b workspace prev
+
+
+# Disable title bar on tiled and floating windows
+default_border none
+default_floating_border none
