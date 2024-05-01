@@ -11,9 +11,9 @@ tmux send-keys -t "GitHub:0" "cd ${FIRST_GIT_REPO_PATH}" Enter
 REPO_COUNTER=1
 
 for repo in $(echo "${GITHUB_REPOS}" | tail -n +2); do
-    tmux new-window -n "$(basename ${repo})" -t "GitHub:${REPO_COUNTER}"
-    tmux send-keys -t "GitHub:${REPO_COUNTER}" "cd ${repo}" Enter
-    ((REPO_COUNTER += 1))
+  tmux new-window -n "$(basename ${repo})" -t "GitHub:${REPO_COUNTER}"
+  tmux send-keys -t "GitHub:${REPO_COUNTER}" "cd ${repo}" Enter
+  ((REPO_COUNTER += 1))
 done
 
 # SSH
