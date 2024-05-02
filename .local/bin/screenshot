@@ -16,7 +16,7 @@ fc()
 #Take a screenshot of the current active window and copy it to clipboard
 awc()
 {
-    maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+    maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
 }
 
 
@@ -33,7 +33,7 @@ fs()
 aws()
 {
     NAME="$(dmenu -p 'Name:')"
-    maim -i $(xdotool getactivewindow) ~/"${NAME}".jpg
+    maim -i "$(xdotool getactivewindow)" ~/"${NAME}".jpg
     dunstify "Saved in ~/${NAME}.jpg"
 }
 

@@ -36,6 +36,7 @@ while [[ ! $# -eq 0 ]]; do
         exit 1
       fi
       shift
+      # shellcheck disable=SC2034
       A_ARGUMENT="${1}"
       ;;
 
@@ -45,6 +46,7 @@ while [[ ! $# -eq 0 ]]; do
         exit 1
       fi
       shift
+      # shellcheck disable=SC2034
       B_ARGUMENT="${1}"
       ;;
 
@@ -54,6 +56,7 @@ while [[ ! $# -eq 0 ]]; do
         exit 1
       fi
       shift
+      # shellcheck disable=SC2034
       C_ARGUMENT="${1}"
       ;;
 
@@ -63,6 +66,7 @@ while [[ ! $# -eq 0 ]]; do
         exit 1
       fi
       shift
+      # shellcheck disable=SC2034
       D_ARGUMENT="${1}"
       ;;
 

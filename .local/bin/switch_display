@@ -8,6 +8,7 @@ EDP1=$(echo "$SOURCES" | grep -i "edp")
 
 HDMI=$(echo "$SOURCES" | grep -i "hdmi")
 
+# shellcheck disable=SC2046
 if [ -z "$HDMI" ]; then
 	xrandr --output "$EDP1" --auto
 else

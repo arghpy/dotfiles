@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 
-SIGNALS=$(cat /home/${USER}/.local/src/dwmblocks/blocks.h | grep -Eo "[0-9][0-9]}" | grep -Eo "[0-9]*" | xargs -I {} echo "{} + 34" | bc)
+SIGNALS=$(cat "/home/${USER}/.local/src/dwmblocks/blocks.h" | grep -Eo "[0-9][0-9]}" | grep -Eo "[0-9]*" | xargs -I {} echo "{} + 34" | bc)
 
 killall dwmblocks 2>/dev/null
-dwmblocks 2>&1 >/dev/null &
+dwmblocks >/dev/null 2>&1 &
 
 for i in $SIGNALS; do
-	kill -$i $(pidof dwmblocks)
+	kill "-$i $(pidof dwmblocks)"
 done
