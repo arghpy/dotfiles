@@ -57,7 +57,7 @@ onescreen() { # If only one output available or chosen.
 	}
 
 postrun() { # Stuff to run to clean up.
-	xwallpaper --zoom "$(echo "$HOME/pictures/wallpapers/astronaut.jpeg")"		# Fix background if screen size/arangement has changed.
+	xwallpaper --zoom "$HOME/pictures/wallpapers/astronaut.jpeg" # Fix background if screen size/arangement has changed.
 	{ killall dunst ; setsid -f dunst ;} >/dev/null 2>&1 # Restart dunst to ensure proper location on screen
 	}
 
