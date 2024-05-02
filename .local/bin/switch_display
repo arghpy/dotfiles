@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+
+
+SOURCES=$(xrandr | grep -w "connected" | awk '{print $1}')
+
+EDP1=$(echo "$SOURCES" | grep -i "edp")
+
+HDMI=$(echo "$SOURCES" | grep -i "hdmi")
+
+# shellcheck disable=SC2046,SC2028
+if [ -z "$HDMI" ]; then
+	xrandr --output "$EDP1" --auto
+else
+	xrandr  --output "$HDMI" --auto --scale 1.0x1.0 \
+		 $(echo $(xrandr -q | grep "connected") \ grep -v "\b$HDMI" | awk '{print "--output", $1, "--off"}' | paste -sd ' ' -)
+
+fi
+
+

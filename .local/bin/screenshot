@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+# select an area and copy it to clipboard
+sc()
+{
+    maim -s | xclip -selection clipboard -t image/png
+}
+
+#Full screenshot and copy to clipboard
+fc()
+{
+    sleep 0.5
+    maim | xclip -selection clipboard -t image/png
+}
+
+#Take a screenshot of the current active window and copy it to clipboard
+awc()
+{
+    maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
+}
+
+
+
+#Full screenshot and save
+fs()
+{
+    NAME="$(dmenu -p 'Name:')"
+    maim ~/"${NAME}".jpg
+    dunstify "Saved in ~/${NAME}.jpg"
+}
+
+#Take a screenshot of the current active window
+aws()
+{
+    NAME="$(dmenu -p 'Name:')"
+    maim -i "$(xdotool getactivewindow)" ~/"${NAME}".jpg
+    dunstify "Saved in ~/${NAME}.jpg"
+}
+
+# select an area and save it
+ss()
+{
+    NAME="$(dmenu -p 'Name:')"
+    maim -s ~/"${NAME}".jpg
+    dunstify "Saved in ~/${NAME}.jpg"
+}
+
+
+
+FC="Full | clipboard"
+AWC="Active window | clipboard"
+SC="Select area | clipboard"
+FS="Full | save"
+AWS="Active window | save"
+SS="Select area | save"
+
+
+OPTIONS="$FC\n$AWC\n$SC\n$FS\n$AWS\n$SS"
+
+CHOOSEN="$(echo -e "$OPTIONS" | dmenu -l 6 -i -p "Screenshot:")"
+
+case "$CHOOSEN" in
+    "$FC")
+            fc
+            ;;
+
+    "$AWC")
+            awc
+            ;;
+
+    "$SC")
+            sc
+            ;;
+
+    "$FS")
+            fs
+            ;;
+
+    "$AWS")
+            aws
+            ;;
+
+    "$SS")
+            ss
+            ;;
+
+    *)
+            echo "Wrong option!"
+            ;;
+esac

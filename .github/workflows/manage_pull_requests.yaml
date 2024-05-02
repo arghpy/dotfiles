@@ -26,6 +26,11 @@ jobs:
     secrets: inherit
     with:
       runner: ${{ vars.RUNNER }}
+      config_options: >
+        {
+        "LINTER_RULES_PATH": ".linters_config",
+        "VALIDATE_SHELL_SHFMT": false
+        }
 
   get_pr_status:
     name: Get PR Status
