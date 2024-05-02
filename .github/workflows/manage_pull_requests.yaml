@@ -28,6 +28,7 @@ jobs:
       runner: ${{ vars.RUNNER }}
       config_options: >
         {
+        "LINTER_RULES_PATH": ".linters_config"
         "VALIDATE_SHELL_SHFMT": false
         }
 
