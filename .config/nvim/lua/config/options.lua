@@ -31,3 +31,6 @@ vim.opt.inccommand = 'split'
 
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
+
+-- Set split to open below
+vim.opt.splitbelow = true
