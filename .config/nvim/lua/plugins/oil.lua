@@ -7,7 +7,6 @@ return {
         require("oil").setup({
             keymaps = {
                 ["g?"] = "actions.show_help",
-                ["<CR>"] = "actions.select",
                 ["<C-s>"] = "actions.select_vsplit",
                 ["<C-h>"] = false,
                 ["<C-t>"] = "actions.select_tab",
@@ -15,7 +14,6 @@ return {
                 ["<C-c>"] = "actions.close",
                 ["<C-r>"] = "actions.refresh",
                 ["<C-l>"] = false,
-                ["-"] = "actions.parent",
                 ["_"] = "actions.open_cwd",
                 ["`"] = "actions.cd",
                 ["~"] = "actions.tcd",
@@ -23,7 +21,22 @@ return {
                 ["gx"] = "actions.open_external",
                 ["g."] = "actions.toggle_hidden",
                 ["g\\"] = "actions.toggle_trash",
+                ["-"] = function()
+                    require("oil.actions").parent.callback()
+                    vim.cmd.lcd(require("oil").get_current_dir())
+                end,
+                ["<CR>"] = function()
+                    require("oil").select(nil, function(err)
+                        if not err then
+                            local curdir = require("oil").get_current_dir()
+                            if curdir then
+                                vim.cmd.lcd(curdir)
+                            end
+                        end
+                    end)
+                end,
             },
+
             view_options = {
                 show_hidden = true
             }
