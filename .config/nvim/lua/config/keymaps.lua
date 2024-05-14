@@ -22,3 +22,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- TODO: improve it such that you can navigate more easily its output - e.g.: to get out of that stupid terminal mode
 -- in order to copy paste
 vim.keymap.set('n', '<leader>t', ':split | terminal<CR>a', { desc = 'Open terminal as a split below' })
+
+-- Bind <ESC> in terminal mode do C-\_C-N
+vim.keymap.set('t', '<ESC>', '<C-\\><C-N>', { desc = 'Exit from terminal mode' })

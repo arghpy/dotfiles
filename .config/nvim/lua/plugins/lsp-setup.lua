@@ -24,8 +24,8 @@ return {
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action,
             { desc = '[C]ode [A]ction' })
         -- TODO: comment this and improve it
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover,
-            { desc = 'Hover Documentation' })
+        -- vim.keymap.set('n', 'K', vim.lsp.buf.hover,
+        --     { desc = 'Hover Documentation' })
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
             { desc = '[G]oto [D]eclaration' })
 
