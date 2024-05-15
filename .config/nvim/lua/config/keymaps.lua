@@ -24,13 +24,26 @@ vim.keymap.set('n', '<leader>t', ':split | terminal<CR>a', { desc = 'Open termin
 -- Bind <ESC> in terminal mode do C-\_C-N
 vim.keymap.set('t', '<ESC>', '<C-\\><C-N>', { desc = 'Exit from terminal mode' })
 
+local function get_open_cmd(path)
+  if vim.fn.executable("xdg-open") == 1 then
+    return "xdg-open " .. path
+  else
+    return nil
+  end
+end
+
 -- xdg-open under cursor (dilimited by space)
 vim.keymap.set('n', '<leader>o', function()
-    if vim.fn.executable("xdg-open") == 1 then
-        local word = vim.fn.expand("<cWORD>")
-        return { "xdg-open", word }
-    else
-        return nil, "no handler found"
+    local path = vim.fn.expand("<cWORD>")
+    local cmd = get_open_cmd(path)
+    if not cmd then
+      vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
+      return
+    end
+    local jid = vim.fn.jobstart(cmd, { detach = true })
+    if jid > 0 then
+      vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
+      return
     end
 end
     , { desc = 'xdg-open word under cursor' })
