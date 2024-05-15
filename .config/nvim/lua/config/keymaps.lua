@@ -19,9 +19,19 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Open terminal as a split below
--- TODO: improve it such that you can navigate more easily its output - e.g.: to get out of that stupid terminal mode
--- in order to copy paste
 vim.keymap.set('n', '<leader>t', ':split | terminal<CR>a', { desc = 'Open terminal as a split below' })
 
 -- Bind <ESC> in terminal mode do C-\_C-N
 vim.keymap.set('t', '<ESC>', '<C-\\><C-N>', { desc = 'Exit from terminal mode' })
+
+-- xdg-open under cursor (dilimited by space)
+vim.keymap.set('n', '<leader>o', function()
+    if vim.fn.executable("xdg-open") == 1 then
+        local word = vim.fn.expand("<cWORD>")
+        return { "xdg-open", word }
+    else
+        return nil, "no handler found"
+    end
+end
+    , { desc = 'xdg-open word under cursor' })
+
