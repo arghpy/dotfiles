@@ -23,20 +23,15 @@ return {
                 ["g\\"] = "actions.toggle_trash",
                 ["-"] = "actions.parent",
                 ["<CR>"] = "actions.select",
-                -- ["-"] = function()
-                --     require("oil.actions").parent.callback()
-                --     vim.cmd.lcd(require("oil").get_current_dir())
-                -- end,
-                -- ["<CR>"] = function()
-                --     require("oil").select(nil, function(err)
-                --         if not err then
-                --             local curdir = require("oil").get_current_dir()
-                --             if curdir then
-                --                 vim.cmd.lcd(curdir)
-                --             end
-                --         end
-                --     end)
-                -- end,
+            },
+
+            columns = {
+                "icon",
+                "size"
+            },
+            constrain_cursor = "name",
+            win_options = {
+              winbar = "%{v:lua.require('oil').get_current_dir()}",
             },
 
             view_options = {
