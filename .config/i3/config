@@ -44,6 +44,12 @@ exec --no-startup-id picom
 # Start dunst
 exec --no-startup-id dunst
 
+# Switch caps with escape at startup
+exec --no-startup-id setxkbmap -option caps:escape
+
+# Enable touchpad
+exec --no-startup-id "${HOME}/.local/bin/touchpad_tap"
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -62,7 +68,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start firefox
-bindsym $mod+w exec firefox
+bindsym $mod+w exec librewolf
 
 # start thunar - file manager
 bindsym $mod+o exec thunar
