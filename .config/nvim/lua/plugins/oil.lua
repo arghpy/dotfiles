@@ -33,6 +33,7 @@ return {
             win_options = {
               winbar = "%{v:lua.require('oil').get_current_dir()}",
             },
+            experimental_watch_for_changes = true,
 
             view_options = {
                 show_hidden = true
