@@ -34,6 +34,8 @@ return {
               winbar = "%{v:lua.require('oil').get_current_dir()}",
             },
             experimental_watch_for_changes = true,
+            default_file_explorer = true,
+            skip_confirm_for_simple_edits = true,
 
             view_options = {
                 show_hidden = true
