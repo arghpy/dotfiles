@@ -1,8 +1,3 @@
--- NOTE: This option is not needed anymore as we use
--- oil.nvim as file manager
--- Go back from file to netrw
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- greatest remap ever idk??
 -- vim.keymap.set("x", "<leader>p", [["_dP]])
 
@@ -33,7 +28,7 @@ local function get_open_cmd(path)
 end
 
 -- xdg-open under cursor (dilimited by space)
-vim.keymap.set('n', '<leader>o', function()
+vim.keymap.set('n', 'gx', function()
     local path = vim.fn.expand("<cWORD>")
     local cmd = get_open_cmd(path)
     if not cmd then
