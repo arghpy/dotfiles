@@ -67,7 +67,7 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# start firefox
+# start librewolf
 bindsym $mod+w exec librewolf
 
 # start thunar - file manager
