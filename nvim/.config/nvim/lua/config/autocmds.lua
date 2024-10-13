@@ -3,7 +3,7 @@
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  group = vim.api.nvim_create_augroup('Yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Open opening a new file README.md, copy the skeleton into it
 vim.api.nvim_create_autocmd('BufNewFile', {
   desc = 'README.md skeleton file apply',
+  group = vim.api.nvim_create_augroup('README.md new file', { clear = true }),
   pattern = "README.md",
   command = "0r ~/.config/nvim/skeletons/README-skeleton.md",
 })
@@ -19,12 +20,15 @@ vim.api.nvim_create_autocmd('BufNewFile', {
 -- Open opening a new file bash.sh, copy the skeleton into it
 vim.api.nvim_create_autocmd('BufNewFile', {
   desc = 'bash.sh skeleton file apply',
+  group = vim.api.nvim_create_augroup('bash.sh new file', { clear = true }),
   pattern = "bash.sh",
   command = "0r ~/.config/nvim/skeletons/bash-skeleton.sh",
 })
 
 -- Setting diagnostic
 vim.api.nvim_create_autocmd("CursorHold", {
+  desc = "Show diagnostic when holding cursor on word",
+  group = vim.api.nvim_create_augroup('Diagnostic', { clear = true }),
   callback = function()
     local opts = {
       focusable = false,
