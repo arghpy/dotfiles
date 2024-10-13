@@ -38,6 +38,7 @@ return {
 
     require('mason').setup()
 
+    -- Servers that need special configuration
     local servers = {
       lua_ls = {
         settings = {
@@ -48,17 +49,35 @@ return {
                 unpack(vim.api.nvim_get_runtime_file('', true)),
               },
             },
-
             completion = {
               callSnippet = 'Replace',
             },
           },
         },
       },
+      rust_analyzer = {
+        settings = {
+          ['rust-analyzer'] = {
+            diagnostics = {
+              enable = true,
+            }
+          }
+        }
+      },
     }
+
+    -- Other servers and linters
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
+      'ansible-lint',
+      'ansiblels',
+      'bashls',
+      'clangd',
+      'cmake',
+      'phpactor',
+      'ts_ls',
+      'yamlls',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
