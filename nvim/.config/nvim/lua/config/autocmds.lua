@@ -11,16 +11,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Open opening a new file README.md, copy the skeleton into it
 vim.api.nvim_create_autocmd('BufNewFile', {
-    desc = 'README.md skeleton file apply',
-    pattern = "README.md",
-    command = "0r ~/.config/nvim/skeletons/README-skeleton.md",
+  desc = 'README.md skeleton file apply',
+  pattern = "README.md",
+  command = "0r ~/.config/nvim/skeletons/README-skeleton.md",
 })
 
 -- Open opening a new file bash.sh, copy the skeleton into it
 vim.api.nvim_create_autocmd('BufNewFile', {
-    desc = 'bash.sh skeleton file apply',
-    pattern = "bash.sh",
-    command = "0r ~/.config/nvim/skeletons/bash-skeleton.sh",
+  desc = 'bash.sh skeleton file apply',
+  pattern = "bash.sh",
+  command = "0r ~/.config/nvim/skeletons/bash-skeleton.sh",
 })
 
 -- Setting diagnostic
