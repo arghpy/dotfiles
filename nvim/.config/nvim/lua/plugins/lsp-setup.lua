@@ -44,6 +44,7 @@ return {
           Lua = {
             workspace = {
               library = {
+                -- in order to have completions on vim api
                 unpack(vim.api.nvim_get_runtime_file('', true)),
               },
             },
