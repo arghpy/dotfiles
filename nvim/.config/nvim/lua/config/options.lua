@@ -2,10 +2,10 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Make tab 4 spaces
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+-- Make tab 2 spaces
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
