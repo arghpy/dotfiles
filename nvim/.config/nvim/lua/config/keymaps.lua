@@ -33,17 +33,17 @@ end
 
 -- xdg-open under cursor (dilimited by space)
 vim.keymap.set('n', 'gx', function()
-    local path = vim.fn.expand("<cWORD>")
-    local cmd = get_open_cmd(path)
-    if not cmd then
-      vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
-      return
-    end
-    local jid = vim.fn.jobstart(cmd, { detach = true })
-    if jid > 0 then
-      vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
-      return
-    end
+  local path = vim.fn.expand("<cWORD>")
+  local cmd = get_open_cmd(path)
+  if not cmd then
+    vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
+    return
+  end
+  local jid = vim.fn.jobstart(cmd, { detach = true })
+  if jid > 0 then
+    vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
+    return
+  end
 end
-    , { desc = 'xdg-open word under cursor' })
+  , { desc = 'xdg-open word under cursor' })
 
