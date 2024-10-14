@@ -1,3 +1,3 @@
-export PATH="${PATH}:/home/arghpy/.local/bin"
+export PATH="${PATH}:${HOME}/.local/bin"
 
 source ~/.bashrc
