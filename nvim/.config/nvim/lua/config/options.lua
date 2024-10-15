@@ -24,10 +24,8 @@ vim.opt.updatetime = 100
 vim.opt.termguicolors = true
 
 -- Extend path
-local bashpath = vim.fn.expand(vim.env.PATH)
-bashpath = bashpath:gsub(":", ",")
-bashpath = '.,/usr/include,/usr/avr/include,' .. bashpath
-vim.opt.path = bashpath
+local path = '.,/usr/include,/usr/avr/include,' .. '**'
+vim.opt.path = path
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
