@@ -10,11 +10,11 @@ return {
         changedelete = { text = '>' },
       },
       signs_staged = {
-        add          = { text = '+' },
-        change       = { text = 'o' },
-        delete       = { text = '>' },
-        topdelete    = { text = '>' },
-        changedelete = { text = '>' },
+        add          = { text = 'v' },
+        change       = { text = 'v' },
+        delete       = { text = 'v' },
+        topdelete    = { text = 'v' },
+        changedelete = { text = 'v' },
       },
       numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
     }
@@ -34,5 +34,8 @@ return {
     vim.cmd('highlight GitSignsAdd guifg=Green')
     vim.cmd('highlight GitSignsChange guifg=Yellow')
     vim.cmd('highlight GitSignsDelete guifg=Red')
+    vim.cmd('highlight GitSignsStagedAdd guifg=Green')
+    vim.cmd('highlight GitSignsStagedChange guifg=Yellow')
+    vim.cmd('highlight GitSignsStagedDelete guifg=Red')
   end
 }
