@@ -9,6 +9,7 @@ order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"
 order += "memory"
+order += "disk /"
 order += "disk /home"
 order += "load"
 order += "tztime local"
@@ -44,6 +45,10 @@ memory {
     format_degraded = "MEMORY: %free"
 }
 
+disk "/" {
+    format = "  /: %avail"
+}
+
 disk "/home" {
-    format = " %avail"
+    format = "  /home: %avail"
 }
