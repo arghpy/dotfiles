@@ -46,9 +46,9 @@ memory {
 }
 
 disk "/" {
-    format = "  /: %avail"
+    format = "/: %avail"
 }
 
 disk "/home" {
-    format = "  /home: %avail"
+    format = "/home: %avail"
 }
