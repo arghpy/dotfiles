@@ -1,6 +1,3 @@
--- greatest remap ever idk??
--- vim.keymap.set("x", "<leader>p", [["_dP]])
-
 -- copies to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
@@ -23,27 +20,59 @@ vim.keymap.set('t', '<ESC>', '<C-\\><C-N>', { desc = 'Exit from terminal mode' }
 vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'Look at the previous element of quickfix list' })
 vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'Look at the previous element of quickfix list' })
 
+-- Open entry under cursor
 local function get_open_cmd(path)
-  if vim.fn.executable("xdg-open") == 1 then
-    return "xdg-open " .. path
+  if vim.fn.has("mac") == 1 then
+    return { "open", path }
+  elseif vim.fn.has("win32") == 1 then
+    if vim.fn.executable("rundll32") == 1 then
+      return { "rundll32", "url.dll,FileProtocolHandler", path }
+    else
+      return nil, "rundll32 not found"
+    end
+  elseif vim.fn.executable("explorer.exe") == 1 then
+    return { "explorer.exe", path }
+  elseif vim.fn.executable("xdg-open") == 1 then
+    return { "xdg-open", path }
   else
-    return nil
+    return nil, "no handler found"
   end
 end
 
--- xdg-open under cursor (dilimited by space)
-vim.keymap.set('n', 'gx', function()
-  local path = vim.fn.expand("<cWORD>")
-  local cmd = get_open_cmd(path)
-  if not cmd then
-    vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
-    return
-  end
-  local jid = vim.fn.jobstart(cmd, { detach = true })
-  if jid > 0 then
-    vim.notify(string.format("Could not open %s", path), vim.log.levels.ERROR)
-    return
-  end
-end
-  , { desc = 'xdg-open word under cursor' })
+vim.keymap.set('n', 'gx',
+  function()
+    local path = vim.fn.expand("<cWORD>")
 
+    if vim.ui.open then
+      vim.ui.open(path)
+      return
+    end
+
+    local cmd, err = get_open_cmd(path)
+    if not cmd then
+      vim.notify(string.format("Could not open %s: %s", path, err), vim.log.levels.ERROR)
+      return
+    end
+    local jid = vim.fn.jobstart(cmd, { detach = true })
+    assert(jid > 0, "Failed to start job")
+  end,
+  {
+    desc = 'Open the entry under the cursor in an external program'
+  }
+)
+
+-- Autoformat file
+vim.api.nvim_create_user_command('Format',
+  function()
+    vim.lsp.buf.format()
+    local buf_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+    for _, v in pairs(buf_clients) do
+      if v.name == 'bash_ls' then
+        vim.cmd("silent %!shfmt --indent 2 -sr -ci -")
+      end
+    end
+  end,
+  {
+    desc = "Format buffer",
+  }
+)
