@@ -35,3 +35,6 @@ vim.opt.timeoutlen = 300
 
 -- Set split to open below
 vim.opt.splitbelow = true
+
+-- Set vsplit to open below
+vim.opt.splitright = true
