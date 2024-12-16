@@ -17,8 +17,8 @@ vim.keymap.set('n', '<leader>t', ':split | terminal<CR>a', { desc = 'Open termin
 vim.keymap.set('t', '<ESC>', '<C-\\><C-N>', { desc = 'Exit from terminal mode' })
 
 --  Look through the next and previous quickfix list
-vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'Look at the previous element of quickfix list' })
-vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'Look at the previous element of quickfix list' })
+vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'QuickFix previous' })
+vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'QuickFix next' })
 
 -- Open entry under cursor
 local function get_open_cmd(path)
