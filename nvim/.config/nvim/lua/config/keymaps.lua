@@ -76,3 +76,6 @@ vim.api.nvim_create_user_command('Format',
     desc = "Format buffer",
   }
 )
+
+--  Format current buffer
+vim.keymap.set('n', '<leader>FF', ':Format<CR>', { desc = 'Format current buffer' })
