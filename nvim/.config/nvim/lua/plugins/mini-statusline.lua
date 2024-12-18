@@ -2,7 +2,7 @@ return {
   'echasnovski/mini.statusline',
   version = false,
 
-  local active_content = function()
+  active_content = function()
     local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
     local git           = MiniStatusline.section_git({ trunc_width = 40 })
     local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
@@ -22,7 +22,7 @@ return {
       { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
       { hl = mode_hl,                  strings = { search, location } },
     })
-  end
+  end,
   config = function()
     require('mini.statusline').setup({ content = { active = active_content }})
   end
