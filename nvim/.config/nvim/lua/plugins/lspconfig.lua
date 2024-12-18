@@ -1,7 +1,5 @@
 return {
   "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
   dependencies = {
     {
       "folke/lazydev.nvim",
@@ -13,6 +11,12 @@ return {
           { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         },
       },
+    },
+    {
+      "williamboman/mason-lspconfig.nvim",
+    },
+    {
+      "neovim/nvim-lspconfig",
     },
   },
   config = function()
@@ -27,7 +31,7 @@ return {
     require("mason-lspconfig").setup_handlers {
       function(server_name)
         require("lspconfig")[server_name].setup ({
-          on_attach = function(client, bufnr)
+          on_attach = function(_, bufnr)
             vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
           end,
         })
