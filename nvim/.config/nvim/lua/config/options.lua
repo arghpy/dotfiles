@@ -38,3 +38,6 @@ vim.opt.splitbelow = true
 
 -- Set vsplit to open below
 vim.opt.splitright = true
+
+-- Capture all clipboards
+vim.opt.clipboard = "unnamedplus"
