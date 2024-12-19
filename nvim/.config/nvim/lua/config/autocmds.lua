@@ -26,18 +26,18 @@ vim.api.nvim_create_autocmd('BufNewFile', {
 })
 
 -- Setting diagnostic
-vim.api.nvim_create_autocmd("CursorHold", {
-  desc = "Show diagnostic when holding cursor on line",
-  group = vim.api.nvim_create_augroup('Diagnostic', { clear = true }),
-  callback = function()
-    local opts = {
-      focusable = false,
-      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-      border = 'rounded',
-      source = 'always',
-      prefix = ' ',
-      scope = 'line',
-    }
-    vim.diagnostic.open_float(nil, opts)
-  end
-})
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--   desc = "Show diagnostic when holding cursor on line",
+--   group = vim.api.nvim_create_augroup('Diagnostic', { clear = true }),
+--   callback = function()
+--     local opts = {
+--       focusable = false,
+--       close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+--       border = 'rounded',
+--       source = 'always',
+--       prefix = ' ',
+--       scope = 'line',
+--     }
+--     vim.diagnostic.open_float(nil, opts)
+--   end
+-- })
