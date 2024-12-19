@@ -41,8 +41,5 @@ return {
       end,
     }
     require('mason-tool-installer').setup {}
-
-    -- Keymaps generated out of lspconfig
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
   end
 }

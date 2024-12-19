@@ -72,7 +72,7 @@ vim.api.nvim_create_user_command('Format',
 )
 
 --  Format current buffer
-vim.keymap.set('n', 'FF', ':Format<CR>', { desc = 'Format current buffer' })
+vim.keymap.set('n', '<leader>FF', ':Format<CR>', { desc = 'Format current buffer' })
 
 -- Execute lua
 vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source current lua buffer' })
@@ -80,4 +80,16 @@ vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { desc = 'Execute selected lua lines' })
 
 -- LSP stuff
-vim.keymap.set('n', 'gd', '<C-]>', { desc = '[G]o to [D]efinition' })
+local map = function(type, key, value)
+  vim.api.nvim_buf_set_keymap(0, type, key, value, { noremap = true, silent = true });
+end
+
+map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+map('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
