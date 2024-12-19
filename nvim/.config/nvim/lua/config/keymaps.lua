@@ -10,12 +10,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Open terminal as a split below
-vim.keymap.set('n', '<leader>t', ':split | terminal<CR>a', { desc = 'Open terminal as a split below' })
-
--- Bind <ESC> in terminal mode do C-\_C-N
-vim.keymap.set('t', '<ESC>', '<C-\\><C-N>', { desc = 'Exit from terminal mode' })
-
 --  Look through the next and previous quickfix list
 vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'QuickFix previous' })
 vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'QuickFix next' })
