@@ -1,7 +1,7 @@
 return {
   "echasnovski/mini.completion",
   version = false,
-  config = function ()
+  config = function()
     require("mini.completion").setup({
       lsp_completion = {
         source_func = 'omnifunc',
@@ -10,7 +10,8 @@ return {
     })
     -- `<Tab>` and `<S-Tab>` for navigation through completion list
     vim.keymap.set('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { desc = "Next completion item", expr = true })
-    vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { desc = "Previous completion item", expr = true })
+    vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
+      { desc = "Previous completion item", expr = true })
 
     -- more consistent behavior of `<CR>` (Enter key)
     local keycode = vim.keycode or function(x)
