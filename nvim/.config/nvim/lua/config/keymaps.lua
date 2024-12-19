@@ -78,3 +78,6 @@ vim.keymap.set('n', 'FF', ':Format<CR>', { desc = 'Format current buffer' })
 vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source current lua buffer' })
 vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line' })
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { desc = 'Execute selected lua lines' })
+
+-- LSP stuff
+vim.keymap.set('n', 'gd', '<C-]>', { desc = '[G]o to [D]efinition' })
