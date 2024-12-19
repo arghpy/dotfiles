@@ -78,7 +78,7 @@ vim.api.nvim_create_user_command('Format',
 )
 
 --  Format current buffer
-vim.keymap.set('n', '<leader>FF', ':Format<CR>', { desc = 'Format current buffer' })
+vim.keymap.set('n', 'FF', ':Format<CR>', { desc = 'Format current buffer' })
 
 -- Execute lua
 vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source current lua buffer' })
