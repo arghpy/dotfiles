@@ -44,3 +44,6 @@ vim.opt.clipboard = "unnamedplus"
 
 -- Disable show mode because it causes flickering
 vim.opt.showmode = false
+
+-- Set wrap lines
+vim.opt.wrap = true
