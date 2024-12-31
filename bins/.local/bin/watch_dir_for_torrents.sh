@@ -97,8 +97,7 @@ while [[ ! $# -eq 0 ]]; do
   shift
 done
 
-TORRENT_FILE="$(inotifywait --quiet --event attrib --include ".*\.torrent" "${WATCH_DIRECTORY}" | awk '{print $NF}')"
-TORRENT_FILE="${WATCH_DIRECTORY}/${TORRENT_FILE}"
+TORRENT_FILE="$(inotifywait --quiet --format '%w%f' --event attrib --include ".*\.torrent" "${WATCH_DIRECTORY}")"
 FILE_TYPE="$(file --brief "${TORRENT_FILE}")"
 
 if [[ "${FILE_TYPE}" != "BitTorrent file" ]]; then
