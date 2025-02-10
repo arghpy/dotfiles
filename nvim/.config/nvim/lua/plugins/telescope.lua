@@ -17,7 +17,14 @@ return {
         pickers = {
           find_files = {
             theme = "ivy",
-            hidden = true,
+            find_command = {
+              "rg",
+              "--files",
+              "--hidden",
+              "--no-ignore-vcs",
+              "-g",
+              "!**/.git/*",
+            },
           },
           help_tags = {
             theme = "ivy",
