@@ -12,7 +12,7 @@ return {
         rust = { "rustfmt", lsp_format = "fallback" },
         -- Conform will run the first available formatter
         javascript = {"prettierd", "prettier", stop_after_first = true },
-        yaml = { "yamlfmt", "yamlfix", stop_after_first = true},
+        yaml = { "yamlfix", stop_after_first = true},
         sh = { "shfmt" },
       },
       formatters = {

@@ -24,12 +24,7 @@ return {
   },
   config = function()
     require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "rust_analyzer"
-      }
-    })
+    require("mason-lspconfig").setup()
 
     require("mason-lspconfig").setup_handlers {
       function(server_name)
@@ -40,6 +35,34 @@ return {
         })
       end,
     }
-    require('mason-tool-installer').setup {}
+    require('mason-tool-installer').setup {
+      ensure_installed = {
+        -- lsp servers
+        "ansible-language-server",
+        "bash-language-server",
+        "clangd",
+        "cmake-language-server",
+        "lua-language-server",
+        "phpactor",
+        "rust-analyzer",
+        "texlab",
+        "typescript-language-server",
+        "yaml-language-server",
+
+        -- formatters
+        "black",
+        "isort",
+        "prettier",
+        "shfmt",
+        "stylua",
+        "yamlfix",
+        "clang-format",
+
+        -- linters
+        "actionlint",
+        "ansible-lint",
+        "yamllint",
+      }
+    }
   end
 }
