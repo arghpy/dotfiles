@@ -55,24 +55,12 @@ vim.keymap.set('n', 'gx',
   }
 )
 
--- Autoformat file
-vim.api.nvim_create_user_command('Format',
-  function()
-    vim.lsp.buf.format()
-    local buf_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
-    for _, v in pairs(buf_clients) do
-      if v.name == 'bash_ls' then
-        vim.cmd("silent %!shfmt --indent 2 -sr -ci -")
-      end
-    end
-  end,
-  {
-    desc = "Format buffer",
-  }
-)
-
 --  Format current buffer
-vim.keymap.set('n', '<leader>FF', ':Format<CR>', { desc = 'Format current buffer' })
+vim.keymap.set('n', '<leader>FF',
+  function()
+    require("conform").format()
+  end,
+  { desc = 'Format current buffer' })
 
 -- Execute lua
 vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source current lua buffer' })
