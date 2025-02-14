@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.statusline',
-  version = false,
+  version = '*',
 
   config = function()
     require('mini.statusline').setup({

@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.trailspace',
-  version = false,
+  version = '*',
 
   config = function()
     require('mini.trailspace').setup()

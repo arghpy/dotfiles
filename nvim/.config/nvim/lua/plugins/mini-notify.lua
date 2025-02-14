@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.notify',
-  version = false,
+  version = '*',
 
   config = function()
     require('mini.notify').setup()
