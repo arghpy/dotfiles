@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.basics',
-  version = false,
+  version = '*',
 
   config = function()
     require('mini.basics').setup({

@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.completion",
-  version = false,
+  version = '*',
   config = function()
     require("mini.completion").setup({
       lsp_completion = {
