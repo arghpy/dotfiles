@@ -7,39 +7,36 @@ return {
         "nvim-lua/plenary.nvim"
       },
       {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
-      }
+        "BurntSushi/ripgrep"
+      },
     },
 
     config = function()
       require('telescope').setup {
+        defaults = require('telescope.themes').get_ivy {},
         pickers = {
           find_files = {
-            theme = "ivy",
             find_command = {
               "rg",
               "--files",
+              "--ignore",
               "--hidden",
-              "--no-ignore-vcs",
-              "-g",
-              "!**/.git/*",
+              "--glob=!.git"
             },
           },
-          help_tags = {
-            theme = "ivy",
+          live_grep = {
+            additional_args = {
+              "--hidden",
+              "--glob=!.git",
+            },
           },
-        },
+        }
       }
       local builtin = require('telescope.builtin')
-      builtin.live_multigrep = require('config.telescope.multigrep')
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Telescope find files' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_multigrep, { desc = 'Telescope custom live_multigrep' })
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live_grep' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Telescope diagnostics' })
-      vim.keymap.set('n', '<leader>sn',
-        function() require('telescope.builtin').find_files { cwd = vim.fn.stdpath("config") } end,
-        { desc = 'Telescope help tags' })
     end
   }
 }
