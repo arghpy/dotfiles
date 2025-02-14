@@ -61,7 +61,6 @@ return {
         -- linters
         "actionlint",
         "ansible-lint",
-        "luacheck",
         "yamllint",
       }
     }
