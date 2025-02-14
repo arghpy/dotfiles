@@ -13,6 +13,12 @@ return {
         -- Conform will run the first available formatter
         javascript = {"prettierd", "prettier", stop_after_first = true },
         yaml = { "yamlfmt", "yamlfix", stop_after_first = true},
+        sh = { "shfmt" },
+      },
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2", "-sr", "-ci" },
+        },
       },
     })
   end
