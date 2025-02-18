@@ -1,0 +1,35 @@
+" colorscheme
+colorscheme desert
+
+" enable syntax highlighting
+syntax on
+
+" set number and relative number
+set number
+set relativenumber
+
+" indentation
+"" better than smartindent
+filetype plugin indent on
+"" show existing tab with 4 spaces width
+set tabstop=4
+"" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+"" on pressing TAB, insert 4 spaces
+set expandtab
+
+" move between windows with Ctrl + h/j/k/l
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+" go in netrw in NORMAL mode
+nnoremap - :Ex<CR>
+
+" terminal escape
+tnoremap <Esc> <C-\><C-n>
+
+" go through the quickfix list
+nnoremap <C-n> :cnext<CR>
+nnoremap <C-p> :cprev<CR>
