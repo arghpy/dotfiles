@@ -51,3 +51,6 @@ vim.opt.wrap = true
 -- Set a global status line
 ---- a single status line for everything
 vim.opt.laststatus = 3
+
+-- Set window bar
+vim.opt.winbar = '%f'
