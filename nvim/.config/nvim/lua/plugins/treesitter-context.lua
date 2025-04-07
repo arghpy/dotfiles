@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter-context',
   config = function()
-    require('mini.trailspace').setup()
+    require('treesitter-context').setup()
   end
 }
