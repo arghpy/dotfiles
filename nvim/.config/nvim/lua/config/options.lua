@@ -54,3 +54,6 @@ vim.opt.laststatus = 3
 
 -- Set window bar
 vim.opt.winbar = '%f'
+
+-- Set spelling as it got smarter
+vim.opt.spell = true
