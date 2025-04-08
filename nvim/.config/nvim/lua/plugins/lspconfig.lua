@@ -28,11 +28,7 @@ return {
 
     require("mason-lspconfig").setup_handlers {
       function(server_name)
-        require("lspconfig")[server_name].setup ({
-          on_attach = function(_, bufnr)
-            vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
-          end,
-        })
+        require("lspconfig")[server_name].setup {}
       end,
       ["ts_ls"] = function ()
         require("lspconfig").ts_ls.setup({
