@@ -38,9 +38,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
       prefix = ' ',
       scope = 'line',
     }
-    vim.diagnostic.config({
-      virtual_text = false,
-    })
     vim.diagnostic.open_float(nil, opts)
   end
 })
