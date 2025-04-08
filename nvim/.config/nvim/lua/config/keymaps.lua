@@ -11,8 +11,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 --  Look through the next and previous quickfix list
-vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'QuickFix previous' })
 vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'QuickFix next' })
+vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'QuickFix previous' })
 
 -- Open entry under cursor
 local function get_open_cmd(path)
@@ -68,4 +68,9 @@ vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { desc = 'Execute selected lua lines' })
 
 -- LSP stuff
+vim.keymap.set('i', '<Tab>', '<C-N>', { desc = 'Next item in suggestion list' })
+vim.keymap.set('i', '<S-Tab>', '<C-P>', { desc = 'Previous item in suggestion list' })
+vim.keymap.set('i', '<C-S>', function() vim.lsp.buf.signature_help() end, { desc = 'Previous item in suggestion list' })
+vim.keymap.set('i', '<CR>', function() return vim.fn.pumvisible() == 1 and '<C-Y>' or '<CR>' end, { expr = true, desc = 'Accept item in suggestion list' })
+vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = 'Go to definition' })
 vim.keymap.set('n', '<leader>ih', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = '[I]nlay [H]int toggle' })
