@@ -57,3 +57,6 @@ vim.opt.winbar = '%f'
 
 -- Set spelling as it got smarter
 vim.opt.spell = true
+
+-- Set diagnostic style
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
