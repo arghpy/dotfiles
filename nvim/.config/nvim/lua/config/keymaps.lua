@@ -68,13 +68,4 @@ vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { desc = 'Execute selected lua lines' })
 
 -- LSP stuff
-vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, { desc = '[G]o to [D]eclaration' })
-vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = '[G]o to [D]efinition' })
-vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, { desc = 'Show help' })
-vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, { desc = '[G]o to [R]eferences' })
-vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help() end, { desc = 'Signature help' })
-vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { desc = '[G]o to [I]mplementation' })
-vim.keymap.set('n', '<leader>gt', function() vim.lsp.buf.type_definition() end, { desc = '[G]o to [T]ype definition' })
-vim.keymap.set('n', '<leader>ca', function() vim.lsp.buf.code_action() end, { desc = '[C]ode [A]ction' })
-vim.keymap.set('n', '<leader>rn', function() vim.lsp.buf.rename() end, { desc = '[R]e[N]ame word' })
 vim.keymap.set('n', '<leader>ih', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = '[I]nlay [H]int toggle' })

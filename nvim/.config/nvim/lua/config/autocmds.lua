@@ -41,3 +41,16 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, opts)
   end
 })
+
+-- Enable native lsp completion
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = "Enable native lsp completion",
+  group = vim.api.nvim_create_augroup('Native completion', { clear = true }),
+  callback = function(args)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
+    end
+  end,
+})
