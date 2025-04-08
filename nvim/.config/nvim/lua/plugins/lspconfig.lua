@@ -34,6 +34,22 @@ return {
           end,
         })
       end,
+      ["ts_ls"] = function ()
+        require("lspconfig").ts_ls.setup({
+          init_options = {
+            preferences = {
+              includeInlayParameterNameHints = 'all',
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+              importModuleSpecifierPreference = 'non-relative',
+            },
+          }
+        })
+      end
     }
     require('mason-tool-installer').setup {
       ensure_installed = {
