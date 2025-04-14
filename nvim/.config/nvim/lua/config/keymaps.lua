@@ -64,8 +64,6 @@ vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { desc = 'Execute selected lua lines' })
 
 -- LSP stuff
-vim.keymap.set('i', '<Tab>', function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<Tab>' end, { desc = 'Next item in suggestion list' })
-vim.keymap.set('i', '<S-Tab>', function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<S-Tab>' end, { desc = 'Previous item in suggestion list' })
 vim.keymap.set('i', '<CR>', function() return vim.fn.pumvisible() == 1 and '<C-Y>' or '<CR>' end, { expr = true, desc = 'Accept item in suggestion list' })
 vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { desc = 'Go to definition' })
 vim.keymap.set('n', '<leader>ih', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = '[I]nlay [H]int toggle' })
