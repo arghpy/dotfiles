@@ -67,8 +67,6 @@ return {
         "prettier",
         "shfmt",
         "stylua",
-        "yamlfix",
-        "clang-format",
 
         -- linters
         "actionlint",

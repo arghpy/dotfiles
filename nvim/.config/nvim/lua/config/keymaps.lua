@@ -56,7 +56,7 @@ vim.keymap.set('n', 'gx',
 )
 
 --  Format current buffer
-vim.keymap.set('n', '<leader>FF', function() vim.lsp.buf.format() end, { desc = 'Format current buffer' })
+vim.keymap.set('n', '<leader>FF', function() require('conform').format() end, { desc = 'Format current buffer' })
 
 -- Execute lua
 vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source current lua buffer' })
