@@ -37,6 +37,7 @@ return {
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope live_grep' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope help tags' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Telescope diagnostics' })
+      vim.keymap.set('n', '<leader>sc', builtin.colorscheme, { desc = 'Telescope colorschemes' })
     end
   }
 }
