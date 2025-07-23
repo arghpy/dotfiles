@@ -67,6 +67,7 @@ return {
         "cmake-language-server",
         "lua-language-server",
         "phpactor",
+        "pylsp",
         "rust-analyzer",
         "texlab",
         "typescript-language-server",
