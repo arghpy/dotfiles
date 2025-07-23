@@ -25,38 +25,33 @@ return {
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup{
-      function(server_name)
-        require("lspconfig")[server_name].setup {}
-      end,
-      ["ts_ls"] = function ()
-        require("lspconfig").ts_ls.setup({
-          init_options = {
-            preferences = {
-              includeInlayParameterNameHints = 'all',
-              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-              importModuleSpecifierPreference = 'non-relative',
-            },
-          }
-        })
-      end,
-      ["pylsp"] = function ()
-        require("lspconfig").pylsp.setup({
-          settings = {
-            pylsp = {
-              plugins = {
-                pycodestyle = {
-                  maxLineLength = 120
-                }
+      vim.lsp.config("ts_ls", {
+        init_options = {
+          preferences = {
+            includeInlayParameterNameHints = 'all',
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+            importModuleSpecifierPreference = 'non-relative',
+          },
+        }
+      }),
+      vim.lsp.enable("ts_ls"),
+      vim.lsp.config("pylsp", {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                maxLineLength = 120
               }
             }
           }
-        })
-      end
+        }
+      }),
+      vim.lsp.enable("pylsp"),
     }
     require('mason-tool-installer').setup {
       ensure_installed = {
