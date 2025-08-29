@@ -31,6 +31,7 @@ while [[ ! $# -eq 0 ]]; do
       ;;
 
     -a | --aaa)
+      # ${1-} means if ${1} is empty, expand to empty string ""
       if [[ -z "${2-}" || ! -e "${2}" ]]; then
         usage
         exit 1
