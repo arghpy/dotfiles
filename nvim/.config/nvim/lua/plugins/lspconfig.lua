@@ -60,6 +60,7 @@ return {
         "bash-language-server",
         "clangd",
         "cmake-language-server",
+        "json-lsp",
         "lua-language-server",
         "phpactor",
         "pylsp",
