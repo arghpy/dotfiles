@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=SC1090
-if ! source ~/.local/bin/log_functions.sh; then
+if ! source ~/.local/bin/functions/log_functions.sh; then
   echo "Could not source log_functions"
   exit 1
 fi
