@@ -71,3 +71,10 @@ vim.keymap.set('n', '<leader>ih', function() vim.lsp.inlay_hint.enable(not vim.l
 -- Center on page up/down
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
+
+-- Automatically close brackets, parentheses and quotes
+vim.keymap.set('i', '(', '()<left>')
+vim.keymap.set('i', '[', '[]<left>')
+vim.keymap.set('i', '{', '{}<left>')
+vim.keymap.set('i', '\'', '\'\'<left>')
+vim.keymap.set('i', '"', '""<left>')
