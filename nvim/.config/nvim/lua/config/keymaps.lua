@@ -1,6 +1,3 @@
--- copies to system clipboard
--- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-
 -- remove search highlighting when pressing <Esc>
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
