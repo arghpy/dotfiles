@@ -24,35 +24,7 @@ return {
   },
   config = function()
     require("mason").setup()
-    require("mason-lspconfig").setup{
-      vim.lsp.config("ts_ls", {
-        init_options = {
-          preferences = {
-            includeInlayParameterNameHints = 'all',
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-            importModuleSpecifierPreference = 'non-relative',
-          },
-        }
-      }),
-      vim.lsp.enable("ts_ls"),
-      vim.lsp.config("pylsp", {
-        settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = {
-                maxLineLength = 120
-              }
-            }
-          }
-        }
-      }),
-      vim.lsp.enable("pylsp"),
-    }
+    require("mason-lspconfig").setup()
     require('mason-tool-installer').setup {
       ensure_installed = {
         -- lsp servers
@@ -69,17 +41,17 @@ return {
         "typescript-language-server",
         "yaml-language-server",
 
+        -- linters
+        "actionlint",
+        "ansible-lint",
+        "yamllint",
+
         -- formatters
         "black",
         "isort",
         "prettier",
         "shfmt",
         "stylua",
-
-        -- linters
-        "actionlint",
-        "ansible-lint",
-        "yamllint",
       }
     }
   end
