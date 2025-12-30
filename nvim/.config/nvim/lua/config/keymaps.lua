@@ -14,9 +14,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'QuickFix next' })
 vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'QuickFix previous' })
 
---  Format current buffer
-vim.keymap.set('n', '<leader>FF', function() require('conform').format() end, { desc = 'Format current buffer' })
-
 -- Execute lua
 vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source current lua buffer' })
 vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line' })
