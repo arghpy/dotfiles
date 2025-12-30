@@ -2,6 +2,11 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
+  dependencies = {
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+    },
+  },
   config = function()
     require 'nvim-treesitter.configs'.setup {
       -- A list of parser names, or "all" (the listed parsers MUST always be installed)
@@ -22,6 +27,8 @@ return {
         end,
       },
     }
+    require('treesitter-context').setup()
+
     -- Folding based on expression
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
