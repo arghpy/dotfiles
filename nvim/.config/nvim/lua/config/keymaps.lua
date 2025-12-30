@@ -14,47 +14,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-n>', ':cnext<CR>', { desc = 'QuickFix next' })
 vim.keymap.set('n', '<C-p>', ':cprev<CR>', { desc = 'QuickFix previous' })
 
--- Open entry under cursor
-local function get_open_cmd(path)
-  if vim.fn.has("mac") == 1 then
-    return { "open", path }
-  elseif vim.fn.has("win32") == 1 then
-    if vim.fn.executable("rundll32") == 1 then
-      return { "rundll32", "url.dll,FileProtocolHandler", path }
-    else
-      return nil, "rundll32 not found"
-    end
-  elseif vim.fn.executable("explorer.exe") == 1 then
-    return { "explorer.exe", path }
-  elseif vim.fn.executable("xdg-open") == 1 then
-    return { "xdg-open", path }
-  else
-    return nil, "no handler found"
-  end
-end
-
-vim.keymap.set('n', 'gx',
-  function()
-    local path = vim.fn.expand("<cWORD>")
-
-    if vim.ui.open then
-      vim.ui.open(path)
-      return
-    end
-
-    local cmd, err = get_open_cmd(path)
-    if not cmd then
-      vim.notify(string.format("Could not open %s: %s", path, err), vim.log.levels.ERROR)
-      return
-    end
-    local jid = vim.fn.jobstart(cmd, { detach = true })
-    assert(jid > 0, "Failed to start job")
-  end,
-  {
-    desc = 'Open the entry under the cursor in an external program'
-  }
-)
-
 --  Format current buffer
 vim.keymap.set('n', '<leader>FF', function() require('conform').format() end, { desc = 'Format current buffer' })
 
