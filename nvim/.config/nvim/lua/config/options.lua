@@ -10,8 +10,6 @@ vim.opt.expandtab = true
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
---
--- Searching in file
 vim.opt.incsearch = true
 
 -- Scrolling
@@ -22,10 +20,6 @@ vim.opt.updatetime = 100
 
 -- Color scheme
 vim.opt.termguicolors = true
-
--- Extend path
-local path = '.,/usr/include,/usr/avr/include,' .. '**'
-vim.opt.path = path
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
