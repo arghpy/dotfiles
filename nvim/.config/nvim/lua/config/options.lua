@@ -57,3 +57,6 @@ vim.diagnostic.config({ virtual_lines = { current_line = true } })
 
 -- Completion menu
 vim.opt.completeopt = 'menu,menuone,popup,fuzzy,noinsert,noselect,preview'
+
+-- Highlight trailing whitespace
+vim.fn.matchadd("Error", [[\s\+$]])
