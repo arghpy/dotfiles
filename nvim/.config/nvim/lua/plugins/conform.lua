@@ -20,5 +20,9 @@ return {
       command = "shfmt",
       args = { "-i", "2", "-sr", "-ci", "-filename", "$FILENAME" },
     }
+
+  --  Format current buffer
+  vim.keymap.set('n', '<leader>FF', function() require('conform').format() end, { desc = 'Format current buffer' })
+
   end
 }
