@@ -21,6 +21,9 @@ vim.opt.updatetime = 100
 -- Color scheme
 vim.opt.termguicolors = true
 
+-- Extend path
+vim.opt.path:append("**")
+
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
