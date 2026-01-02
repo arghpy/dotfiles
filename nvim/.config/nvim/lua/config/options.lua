@@ -54,6 +54,7 @@ vim.opt.winbar = '%f'
 
 -- Set spelling as it got smarter
 vim.opt.spell = true
+vim.opt.spelllang = "en_us,ro"
 
 -- Set diagnostic style
 vim.diagnostic.config({ virtual_lines = { current_line = true } })
