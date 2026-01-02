@@ -13,7 +13,8 @@ return {
   config = function()
     require('neowiki').setup({
       wiki_dirs = {
-        { name = "Notes", path = "~/notes" },
+        { name = "Personal Notes",         path = "~/notes-personal" },
+        { name = "Notes",                  path = "~/notes" },
       },
     })
     require('render-markdown').setup({
@@ -25,10 +26,12 @@ return {
         -- | block | width of the heading text |
         -- | full  | full width of the window  |
         -- Can also be a list of the above values evaluated by `clamp(value, context.level)`.
-        width = "block",
+        width = "full",
       },
       code = {
         width = "block",
+        disable_background = true,
+        highlight_border = false,
       },
     })
   end
