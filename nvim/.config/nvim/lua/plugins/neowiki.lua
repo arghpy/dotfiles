@@ -3,7 +3,6 @@ return {
   opts = {
     wiki_dirs = {
       { name = "Notes", path = "~/notes" },
-      { name = "Work", path = "~/notes/work" },
     },
   },
   dependencies = {
