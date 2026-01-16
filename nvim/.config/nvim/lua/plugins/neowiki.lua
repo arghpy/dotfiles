@@ -33,6 +33,12 @@ return {
         disable_background = true,
         highlight_border = false,
       },
+      bullet = {
+        enabled = false,
+      },
+      checkbox = {
+        enabled = false,
+      },
     })
   end
 }
