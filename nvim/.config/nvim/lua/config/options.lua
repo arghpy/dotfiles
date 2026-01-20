@@ -63,3 +63,4 @@ vim.opt.completeopt = 'menu,menuone,popup,fuzzy,noinsert,noselect,preview'
 
 -- Highlight trailing whitespace
 vim.fn.matchadd("Error", [[\s\+$]])
+vim.fn.matchadd("Error", [[^\s\+$]])
