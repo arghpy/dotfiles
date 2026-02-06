@@ -31,7 +31,6 @@ return {
         "ansible-language-server",
         "bash-language-server",
         "clangd",
-        "cmake-language-server",
         "json-lsp",
         "lua-language-server",
         "phpactor",
