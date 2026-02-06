@@ -37,3 +37,4 @@ alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles exce
 export PS1='\u@\H: \W\[\e[92m\]$(parse_git_branch)\[\e[0m\] \$ '
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/opt/bin"
 export EDITOR="vim"
+. "$HOME/.cargo/env"
