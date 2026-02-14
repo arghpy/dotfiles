@@ -2,6 +2,11 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "master",
   build = ":TSUpdate",
+  dependencies = {
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+    },
+  },
   opts = {
     ensure_installed = {
       "c",
