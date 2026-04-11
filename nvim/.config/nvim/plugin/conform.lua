@@ -1,0 +1,21 @@
+vim.pack.add({'https://github.com/stevearc/conform.nvim'})
+require('conform').setup({
+  formatters_by_ft = {
+    lua = { "stylua", lsp_format = "fallback"},
+    python = { "isort", "black", lsp_format = "fallback" },
+    rust = { "rustfmt", lsp_format = "fallback" },
+    javascript = { "prettier", lsp_format = "fallback" },
+    yaml = { "prettier", lsp_format = "fallback" },
+    sh = { "shfmt", stop_after_first = true, lsp_format = "fallback" },
+  }
+
+})
+-- configure formatters
+require("conform").formatters.shfmt = {
+  inherit = false,
+  command = "shfmt",
+  args = { "-i", "2", "-sr", "-ci", "-filename", "$FILENAME" },
+}
+
+--  Format current buffer
+vim.keymap.set('n', '<leader>FF', function() require('conform').format() end, { desc = 'Format current buffer' })
