@@ -24,17 +24,3 @@ vim.api.nvim_create_autocmd('BufNewFile', {
   pattern = "bash.sh",
   command = "0r ~/.config/nvim/skeletons/bash-skeleton.sh",
 })
-
--- Enable native lsp completion
-vim.api.nvim_create_autocmd('LspAttach', {
-  desc = "Enable native lsp completion",
-  group = vim.api.nvim_create_augroup('Native completion', { clear = true }),
-  callback = function(args)
-    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-    if client:supports_method('textDocument/completion') then
-      local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-      client.server_capabilities.completionProvider.triggerCharacters = chars
-      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
-    end
-  end,
-})
