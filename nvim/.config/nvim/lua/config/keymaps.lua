@@ -16,6 +16,7 @@ vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', { desc = 'Source curre
 vim.keymap.set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute current lua line' })
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { desc = 'Execute selected lua lines' })
 
--- Center on page up/down
+-- Centering
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-]>', '<C-]>zz')
