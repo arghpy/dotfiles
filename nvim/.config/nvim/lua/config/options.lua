@@ -65,3 +65,8 @@ vim.fn.matchadd("Error", [[^\s\+$]])
 
 -- Set syntax
 vim.o.syntax = "on"
+
+-- Folding
+vim.opt.foldmethod = 'syntax'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
